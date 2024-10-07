@@ -11,17 +11,17 @@ jobs:
 
       - uses: actions/setup-node@v4
 
-      - name: Installing dependencies
       - run: make install
+      - name: Installing dependencies
 
-      - name: Runnning eslint
       - run: npx eslint .
+      - name: Runnning eslint
 
-      - name: Running automated tests
       - run: make test
+      - name: Running automated tests
 
+      - uses: paambaati/codeclimate-action@v5.0.0
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v5.0.0
 
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
